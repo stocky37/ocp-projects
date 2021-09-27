@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: greeting-ui
+  namespace: openshift-gitops
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/stocky37/ex-greeting-ui-k8s.git
+      revision: HEAD
+      directories:
+      - path: '*'
+  template:
+    metadata:
+      name: 'greeting-ui-{{path.basename}}'
+    spec:
+      project: example-app
+      source:
+        repoURL: https://github.com/stocky37/ex-greeting-ui-k8s.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: 'example-app-{{path.basename}}'
