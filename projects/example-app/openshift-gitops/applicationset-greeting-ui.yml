@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/stocky37/ex-greeting-ui-k8s.git
       revision: HEAD
       directories:
-      - path: '*'
+      - path: 'environments/*'
   template:
     metadata:
       name: 'greeting-ui-{{path.basename}}'

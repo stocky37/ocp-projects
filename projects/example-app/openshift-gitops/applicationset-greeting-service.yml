@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/stocky37/ex-greeting-service-k8s.git
       revision: HEAD
       directories:
-      - path: '*'
+      - path: 'environments/*'
   template:
     metadata:
       name: 'greeting-service-{{path.basename}}'
