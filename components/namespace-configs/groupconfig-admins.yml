@@ -1,0 +1,68 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: GroupConfig
+metadata:
+  name: tenant-admins-config
+spec:
+  labelSelector:
+    matchLabels:
+      type: tenant-admins
+  templates:
+    # cicd
+    - objectTemplate: |
+        apiVersion: rbac.authorization.k8s.io/v1
+        kind: RoleBinding
+        metadata:
+          name: {{ .Name }}
+          namespace: {{ splitList "-" .Name | initial | join "-" }}-cicd
+        roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: ClusterRole
+          name: admin
+        subjects:
+        - kind: Group
+          name: {{ .Name }}
+
+    # dev
+    - objectTemplate: |
+        apiVersion: rbac.authorization.k8s.io/v1
+        kind: RoleBinding
+        metadata:
+          name: {{ .Name }}
+          namespace: {{ splitList "-" .Name | initial | join "-" }}-dev
+        roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: ClusterRole
+          name: admin
+        subjects:
+        - kind: Group
+          name: {{ .Name }}
+
+      # qa
+    - objectTemplate: |
+        apiVersion: rbac.authorization.k8s.io/v1
+        kind: RoleBinding
+        metadata:
+          name: {{ .Name }}
+          namespace: {{ splitList "-" .Name | initial | join "-" }}-qa
+        roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: ClusterRole
+          name: admin
+        subjects:
+        - kind: Group
+          name: {{ .Name }}
+
+      # prod
+    - objectTemplate: |
+        apiVersion: rbac.authorization.k8s.io/v1
+        kind: RoleBinding
+        metadata:
+          name: {{ .Name }}
+          namespace: {{ splitList "-" .Name | initial | join "-" }}-prod
+        roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: ClusterRole
+          name: admin
+        subjects:
+        - kind: Group
+          name: {{ .Name }}
