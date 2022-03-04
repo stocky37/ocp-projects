@@ -9,11 +9,11 @@ spec:
   destinations:
   - namespace: example-app-cicd
     server: https://kubernetes.default.svc
-  - namespace: example-app-development
+  - namespace: example-app-dev
     server: https://kubernetes.default.svc
-  - namespace: example-app-staging
+  - namespace: example-app-qa
     server: https://kubernetes.default.svc
-  - namespace: example-app-production
+  - namespace: example-app-prod
     server: https://kubernetes.default.svc
   namespaceResourceWhitelist:
   - group: '*'

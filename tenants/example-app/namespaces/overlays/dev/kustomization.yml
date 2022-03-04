@@ -1,7 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: example-app-staging
+
+namespace: example-app-dev
 commonLabels:
-  environment: staging
+  environment: dev
+
 resources:
-- ../../../bases/application
+- ../../base
