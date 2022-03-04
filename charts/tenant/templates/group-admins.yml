@@ -1,0 +1,6 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: {{ include "groups.admin.name" . }}
+users:
+{{ .Values.users.admins | toYaml }}

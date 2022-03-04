@@ -1,0 +1,22 @@
+global:
+  tenant: example-app
+users:
+  admins:
+    - stocky
+  team:
+    - stocky
+    - dev-user
+
+cicd:
+  type: cicd
+  restricted: false
+dev:
+  type: runtime
+  environment: dev
+  restricted: false
+qa:
+  type: runtime
+  environment: qa
+prod:
+  type: runtime
+  environment: prod
