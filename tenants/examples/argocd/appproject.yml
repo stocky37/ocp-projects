@@ -1,19 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: example-app
-  namespace: openshift-gitops
+  name: examples
 spec:
   sourceRepos:
   - '*'
   destinations:
-  - namespace: example-app-cicd
+  - namespace: examples-cicd
     server: https://kubernetes.default.svc
-  - namespace: example-app-dev
+  - namespace: examples-dev
     server: https://kubernetes.default.svc
-  - namespace: example-app-stage
+  - namespace: examples-stage
     server: https://kubernetes.default.svc
-  - namespace: example-app-prod
+  - namespace: examples-prod
     server: https://kubernetes.default.svc
   namespaceResourceWhitelist:
   - group: '*'
