@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   - namespace: example-app-dev
     server: https://kubernetes.default.svc
-  - namespace: example-app-qa
+  - namespace: example-app-stage
     server: https://kubernetes.default.svc
   - namespace: example-app-prod
     server: https://kubernetes.default.svc

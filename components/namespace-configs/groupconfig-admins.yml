@@ -37,13 +37,13 @@ spec:
         - kind: Group
           name: {{ .Name }}
 
-      # qa
+      # stage
     - objectTemplate: |
         apiVersion: rbac.authorization.k8s.io/v1
         kind: RoleBinding
         metadata:
           name: {{ .Name }}
-          namespace: {{ splitList "-" .Name | initial | join "-" }}-qa
+          namespace: {{ splitList "-" .Name | initial | join "-" }}-stage
         roleRef:
           apiGroup: rbac.authorization.k8s.io
           kind: ClusterRole
