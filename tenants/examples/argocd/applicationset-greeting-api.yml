@@ -8,7 +8,7 @@ spec:
         repoURL: &url https://github.com/tom-stockwell/greeting-api-k8s.git
         revision: &rev HEAD
         directories:
-          - path: 'environments/*'
+          - path: 'overlays/*'
   template:
     metadata:
       name: 'greeting-api-{{ path.basename }}'

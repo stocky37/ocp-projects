@@ -4,11 +4,11 @@ metadata:
   name: greeting-ui
 spec:
   generators:
-  - git:
-      repoURL: &url https://github.com/tom-stockwell/greeting-ui-k8s.git
-      revision: &rev HEAD
-      directories:
-      - path: 'environments/*'
+    - git:
+        repoURL: &url https://github.com/tom-stockwell/greeting-ui-k8s.git
+        revision: &rev HEAD
+        directories:
+          - path: 'overlays/*'
   template:
     metadata:
       name: 'greeting-ui-{{ path.basename }}'
