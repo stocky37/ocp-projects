@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: examples
+  name: demo-gitops-cicd
 spec:
   sourceRepos:
   - '*'
   destinations:
-  - namespace: examples-cicd
+  - namespace: demo-gitops-cicd-cicd
     server: https://kubernetes.default.svc
-  - namespace: examples-dev
+  - namespace: demo-gitops-cicd-dev
     server: https://kubernetes.default.svc
-  - namespace: examples-stage
+  - namespace: demo-gitops-cicd-stage
     server: https://kubernetes.default.svc
-  - namespace: examples-prod
+  - namespace: demo-gitops-cicd-prod
     server: https://kubernetes.default.svc
   namespaceResourceWhitelist:
   - group: '*'

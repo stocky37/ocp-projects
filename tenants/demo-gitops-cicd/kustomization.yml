@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 commonLabels:
-  tenant: examples
+  tenant: demo-gitops-cicd
 resources:
 - groups
 - argocd

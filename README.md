@@ -31,6 +31,6 @@ Creates the following resources:
 - Group `admin` access to all namespaces configured by the *Tenant Group*
 
 ## Tenants
-### Examples
+### demo-gitops-cicd
 
-The *examples* tenant contains various example applications.
+The *demo-gitops-cicd* tenant contains the necessary setup for an OpenShift GitOps & OpenShift Pipelines demo.

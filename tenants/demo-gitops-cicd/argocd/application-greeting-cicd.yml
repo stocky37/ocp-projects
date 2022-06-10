@@ -3,14 +3,14 @@ kind: Application
 metadata:
   name: greeting-cicd
 spec:
-  project: examples
+  project: demo-gitops-cicd
   source:
     repoURL: https://github.com/tom-stockwell/greeting-app-cicd.git
     targetRevision: HEAD
     path: .
   destination:
     server: https://kubernetes.default.svc
-    namespace: examples-cicd
+    namespace: demo-gitops-cicd-cicd
   syncPolicy:
 #    automated:
 #      prune: true
