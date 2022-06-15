@@ -12,6 +12,8 @@ spec:
   template:
     metadata:
       name: 'greeting-api-{{ path.basename }}'
+      annotations:
+        argocd.argoproj.io/manifest-generate-paths: base;{{ path }}
       labels:
         tenant: demo-gitops-cicd
     spec:
