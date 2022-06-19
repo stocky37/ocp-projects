@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../../tenants/demo-gitops-cicd
+
+patches:
+  - path: patch-applicationset.yml
+    target:
+      kind: ApplicationSet
+
+  - path: patch-application.yml
+    target:
+      kind: Application

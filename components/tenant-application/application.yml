@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tenant
+spec:
+  project: tenant
+  source:
+    repoURL: https://github.com/tom-stockwell/ocp-tenants
+    targetRevision: HEAD
+    path: clusters/cluster/tenant
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: openshift-gitops
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
