@@ -34,3 +34,6 @@ Creates the following resources:
 ### demo-gitops-cicd
 
 The *demo-gitops-cicd* tenant contains the necessary setup for an OpenShift GitOps & OpenShift Pipelines demo.
+
+
+Note: directories in clusters/*/ only there for ApplicationSet purposes
