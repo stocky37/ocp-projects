@@ -8,12 +8,10 @@ spec:
         repoURL: &url https://github.com/tom-stockwell/greeting-api-k8s.git
         revision: &rev HEAD
         directories:
-          - path: 'overlays/*'
+          - path: overlays/*
   template:
     metadata:
-      name: 'greeting-api-{{ path.basename }}'
-      annotations:
-        argocd.argoproj.io/manifest-generate-paths: base;{{ path }}
+      name: demo-gitops-cicd-greeting-api-{{ path.basename }}
       labels:
         tenant: demo-gitops-cicd
     spec:
@@ -24,7 +22,7 @@ spec:
         path: '{{ path }}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'demo-gitops-cicd-{{ path.basename }}'
+        namespace: demo-gitops-cicd-{{ path.basename }}
       syncPolicy:
         automated:
           prune: true

@@ -1,7 +1,29 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namePrefix: demo-gitops-cicd-
+
 commonLabels:
   tenant: demo-gitops-cicd
+
 resources:
-- groups
-- argocd
+  - namespaces
+  - argocd
+
+components:
+  - ../../components/tenant-groups
+
+
+replacements:
+  # prefix the tenant name to the rolebindings' group names
+  - source:
+      kind: Namespace
+      fieldPath: metadata.labels.tenant
+      name: dev
+    targets:
+      - select:
+          kind: RoleBinding
+        fieldPaths:
+          - subjects.0.name
+        options:
+          delimiter: '-'
+          index: -1
