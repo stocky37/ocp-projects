@@ -11,7 +11,7 @@ spec:
           - path: overlays/*
   template:
     metadata:
-      name: demo-gitops-cicd-greeting-api-{{ path.basename }}
+      name: greeting-api-{{ path.basename }}
       labels:
         tenant: demo-gitops-cicd
     spec:
