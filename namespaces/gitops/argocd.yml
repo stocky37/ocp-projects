@@ -11,6 +11,7 @@ spec:
       kinds:
       - TaskRun
       - PipelineRun
+  applicationSet: {}
   server:
     route:
       enabled: true
