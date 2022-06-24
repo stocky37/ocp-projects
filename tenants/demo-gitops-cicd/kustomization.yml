@@ -12,12 +12,14 @@ components:
 
 
 replacements:
-  # prefix the tenant name to the rolebindings' group names
+  # tenant name is the source
   - source:
       kind: Namespace
       fieldPath: metadata.labels.tenant
       name: dev
     targets:
+
+      # prefix rolebinding subject names
       - select:
           kind: RoleBinding
         fieldPaths:
@@ -26,12 +28,7 @@ replacements:
           delimiter: '-'
           index: -1
 
-  # prefix the tenant name to the namespaces argocd label
-  - source:
-      kind: Namespace
-      fieldPath: metadata.labels.tenant
-      name: dev
-    targets:
+      # prefix managed-by label for namespaces
       - select:
           kind: Namespace
         fieldPaths:
