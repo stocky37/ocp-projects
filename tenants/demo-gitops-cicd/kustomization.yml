@@ -25,3 +25,17 @@ replacements:
         options:
           delimiter: '-'
           index: -1
+
+  # prefix the tenant name to the namespaces argocd label
+  - source:
+      kind: Namespace
+      fieldPath: metadata.labels.tenant
+      name: dev
+    targets:
+      - select:
+          kind: Namespace
+        fieldPaths:
+          - metadata.labels.[argocd.argoproj.io/managed-by]
+        options:
+          delimiter: '-'
+          index: -1
