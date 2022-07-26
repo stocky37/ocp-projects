@@ -15,8 +15,8 @@ replacements:
   # tenant name is the source
   - source:
       kind: Namespace
-      fieldPath: metadata.labels.tenant
       name: dev
+      fieldPath: metadata.labels.tenant
     targets:
 
       # prefix rolebinding subject names
