@@ -5,14 +5,11 @@ commonLabels:
   tenant: demo-gitops-cicd
 
 resources:
+  - groups
   - namespaces
 
-components:
-  - ../../components/tenant-groups
-
-
 replacements:
-  # tenant name is the source
+  # source from the tenant label
   - source:
       kind: Namespace
       name: dev
