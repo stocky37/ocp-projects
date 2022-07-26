@@ -19,11 +19,12 @@ replacements:
       fieldPath: metadata.labels.tenant
     targets:
 
-      # prefix rolebinding subject names
+      # prefix rolebinding group names
       - select:
           kind: RoleBinding
         fieldPaths:
-          - subjects.0.name
+          - subjects.[name=admins].name
+          - subjects.[name=team].name
         options:
           delimiter: '-'
           index: -1

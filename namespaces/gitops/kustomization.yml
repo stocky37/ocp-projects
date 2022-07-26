@@ -5,8 +5,3 @@ namespace: gitops
 resources:
   - ../base
   - argocd.yml
-
-components:
-  - ../../components/team-view
-
-

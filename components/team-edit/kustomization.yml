@@ -1,11 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1alpha1
 kind: Component
 patches:
-  # add team to admin rolebinding
+  # add team to editors rolebinding
   - path: patch-rolebinding-append-team.yml
     target:
       kind: RoleBinding
-      name: admins
+      name: editors
 
   # remove team from viewers rolebinding
   - path: patch-rolebinding-remove-subject.yml

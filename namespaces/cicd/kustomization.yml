@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - ../base
 components:
-  - ../../components/team-admin
+  - ../../components/team-edit
