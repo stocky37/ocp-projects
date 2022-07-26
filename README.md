@@ -1,39 +1,42 @@
 # OCP Tenant Configuration
 
 This repository contains configuration for cluster tenants.
-The [Namespace Configuration Operator](https://github.com/redhat-cop/namespace-configuration-operator) is used to provision namespaces based on OpenShift Groups.
 
-## Group Configuration
+## Add a New Tenant
 
-Different labels attached to groups will configure different resources using the GroupConfig feature of the Namespace Configuration Operator.
+TODO
 
-This is configured as follows:
+## Layout
 
-### Tenant Group
+TODO
 
-**Label:** `type: tenant`
+## Typical Tenant
 
-Creates the following resources:
+The following resources will be created for typical tenant.
 
-- `${tenant}-cicd` namespace
-- `${tenant}-dev` namespace
-- `${tenant}-stage` namespace
-- `${tenant}-prod` namespace
-- Group `admin` access to `cicd` and `dev` namespaces
-- Group `edit` access to `stage` and `prod` namespace
+### Groups
 
-### Tenant Admin Group
+The following groups will all be prefixed by the tenant name.
+For example, the `admins` namespace will become `tenant-name-admins`.
 
-**Label:** `type: tenant-admins`
+| Name       | Description                                                                           |
+|------------|---------------------------------------------------------------------------------------|
+| **admins** | Tenant admins. Has admin access to all tenant namespaces.                             |
+| **team**   | Represents the entire tenant team. Has at least view access to all tenant namespaces. |
 
-Creates the following resources:
+### Namespaces
 
-- Group `admin` access to all namespaces configured by the *Tenant Group*
+The following namespaces will all be prefixed by the tenant name.
+For example, the `dev` namespace will become `tenant-name-dev`.
+
+| Name       | Team Access | Description                                                        |
+|------------|-------------|--------------------------------------------------------------------|
+| **gitops** | view        | Contains the tenant's Argo CD instance and associated Applications |
+| **cicd**   | edit        | Contains the tenant's CICD pipelines and tasks                     |
+| **dev**    | admin       | The development environment for the tenant's applications          |
+| **stage**  | edit        | The staging environment for the tenant's applications              |
+| **prod**   | view        | The production environment for the tenant's applications           |
 
 ## Tenants
-### demo-gitops-cicd
 
-The *demo-gitops-cicd* tenant contains the necessary setup for an OpenShift GitOps & OpenShift Pipelines demo.
-
-
-Note: directories in clusters/*/ only there for ApplicationSet purposes
+* **[demo-gitops-cicd](./tenants/demo-gitops-cicd):** Standard tenant
