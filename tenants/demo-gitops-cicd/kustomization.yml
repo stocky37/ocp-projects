@@ -26,6 +26,15 @@ replacements:
           delimiter: '-'
           index: -1
 
+      # prefix rolebinding for serviceaccountnamespaces
+      - select:
+          kind: RoleBinding
+        fieldPaths:
+          - subjects.[namespace=gitops].namespace
+        options:
+          delimiter: '-'
+          index: -1
+
       # prefix managed-by label for namespaces
       - select:
           kind: Namespace

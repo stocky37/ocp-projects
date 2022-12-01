@@ -6,5 +6,8 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: edit
-subjects: []
+subjects:
+  - kind: ServiceAccount
+    name: argocd-argocd-application-controller
+    namespace: gitops
 
